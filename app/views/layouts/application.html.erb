@@ -15,6 +15,15 @@
     <div id="columns">
       <div id="side">
         <h4 id="time"><%= Time.now.asctime %></h4>
+        <div id="cart">
+          <%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do %>
+            <%= render @cart %>
+          <% end %>
+          <!-- <% if @cart %>
+            <%= render @cart %>
+          <% end %> -->
+        </div>
+
         <ul>
           <li><a href="http://www....">Home</a></li>
           <li><a href="http://www..../faq">Questions</a></li>
