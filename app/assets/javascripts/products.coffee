@@ -3,5 +3,5 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 App.productsChannel =
-  App.channelll.subscriptions.create { channel: "ProductsChannel" },
+  App.cable.subscriptions.create { channel: "ProductsChannel" },
     received: (data) -> $(".store #main").html(data.html)
