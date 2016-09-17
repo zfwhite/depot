@@ -21,6 +21,11 @@
       </div>
 
       <div class="field">
+        <%= f.label :old_password, 'Old PW: ' %>
+        <%= f.password_field :old_password, size: 40 %>
+      </div>
+
+      <div class="field">
         <%= f.label :password, 'Password: ' %>
         <%= f.password_field :password, size: 40 %>
       </div>
