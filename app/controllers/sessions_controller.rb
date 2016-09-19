@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     if user.try(:authenticate, params[:password])
       session[:user_id] = user.id
       redirect_to admin_url
-    elsif user == nil
+    elsif User.count == 0
       redirect_to new_user_url
     else
       redirect_to login_url, alert: "Invalid user/password combination"
