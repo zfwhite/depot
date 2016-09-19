@@ -53,6 +53,10 @@ class UsersController < ApplicationController
           format.json { render json: @user.errors, status: :unprocessable_entity }
         end
       end
+    else
+      format.html { redirect_to users_url,
+        notice: "Old password was incorrect." }
+      format.json { render :show, status: :ok, location: @user }
     end
   end
 
@@ -66,7 +70,7 @@ class UsersController < ApplicationController
     end
   end
 
-  rescue_from 'User::Error' do |exception|
+  rescue_from 'User::StandardError' do |exception|
     redirect_to users_url, notice: exception.message
   end
 
